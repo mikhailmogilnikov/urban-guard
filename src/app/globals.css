@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  @media (pointer: fine)  {
+    .button-hover {
+      border-color: rgba(0, 0, 0, 0.2);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .button-hover-dark {
+      border-color: rgba(255, 255, 255, 0.2);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+  }
+  .shadow-red {
+    box-shadow: 0 0 22px 6px rgba(255, 0, 0, 0.59);
+  }
+  .shadow-yellow {
+    box-shadow: 0 0 15px 6px rgba(255, 238, 0, 0.28);
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
@@ -24,4 +43,26 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    -webkit-tap-highlight-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--var-active-element);
+}
+*::-webkit-scrollbar-track {
+	background-color: var(--var-bg);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	-webkit-box-shadow: 0 0 0 1000px var(--var-elements) inset !important;
+	-webkit-text-fill-color: var(--var-text-and-icons) !important;
+	transition: background-color 5000s ease-in-out 0s;
 }

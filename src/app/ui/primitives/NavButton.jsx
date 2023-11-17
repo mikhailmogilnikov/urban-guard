@@ -17,7 +17,7 @@ const NavButton = ({ type }) => {
   }
   return (
     <button
-      className={`flex ${hideButtonClass} justify-center items-center w-10 h-10 rounded-2xl border border-black/10 dark:border-white/10`}
+      className={`flex ${hideButtonClass} justify-center items-center w-10 h-10 rounded-2xl border border-black/10 dark:border-white/10 hover:button-hover dark:hover:button-hover-dark active:scale-90 transition-transform`}
     >
       {iconComponent}
     </button>

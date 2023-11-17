@@ -1,5 +1,6 @@
 import Header from './ui/Header.jsx'
 import EventList from './ui/event-list/EventList.jsx'
+import Map from './ui/map/Map.jsx'
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
         <Header />
         <EventList />
       </div>
-      <div className="w-full h-full"></div>
+      <Map />
     </div>
   );
 }
