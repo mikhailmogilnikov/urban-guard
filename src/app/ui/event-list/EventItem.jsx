@@ -1,6 +1,6 @@
 const EventItem = ({ state, type, date, time }) => {
   return (
-    <button className="w-full h-20 px-6 flex flex-row gap-5 items-center rounded-[30px] border border-black/10 dark:border-white/10 hover:button-hover dark:hover:button-hover-dark active:scale-95 transition-transform">
+    <button className="w-full h-20 px-6 flex flex-row gap-5 items-center rounded-[30px] border border-black/20 dark:border-white/20 hover:button-hover dark:hover:button-hover-dark active:scale-95 transition-transform">
       <div
         className={`${
           state === 'confirmed'

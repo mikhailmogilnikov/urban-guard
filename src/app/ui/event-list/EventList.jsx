@@ -1,5 +1,6 @@
-import EventItem from './EventItem.jsx';
 import testEvents from '@/testEvents/testEvents.js';
+import EventItem from './EventItem.jsx';
+import { ThemeSwitcher } from '../primitives/ThemeSwitcher.jsx'
 
 const currDay = new Date('29.11.2023');
 
@@ -15,6 +16,7 @@ const EventList = () => {
           time={event.time}
         />
       ))}
+      <ThemeSwitcher />
     </aside>
   );
 };

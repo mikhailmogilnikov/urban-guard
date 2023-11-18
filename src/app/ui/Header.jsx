@@ -2,7 +2,7 @@ import NavButton from './primitives/NavButton.jsx';
 
 const Header = () => {
   return (
-    <header className="flex flex-row justify-between h-16 border-b border-black/10 dark:border-white/10 px-5">
+    <header className="flex flex-row justify-between h-16 border-b border-black/20 dark:border-white/20 px-5">
       <div className="w-fit h-full flex flex-row justify-center items-center">
         <h1 className="h-min font-bold text-xl">Urban Guard</h1>
       </div>
