@@ -1,4 +1,6 @@
-const Text = ({ tag, text, classNames }) => {
+import PropTypes from 'prop-types';
+
+function Text({ tag, text, classNames }) {
   let textStyles;
 
   switch (tag) {
@@ -20,11 +22,13 @@ const Text = ({ tag, text, classNames }) => {
 
   const Tag = tag || 'p';
 
-  return (
-    <Tag className={`${textStyles} ${!!classNames ? classNames : ''}`}>
-      {text}
-    </Tag>
-  );
+  return <Tag className={`${textStyles} ${classNames || ''}`}>{text}</Tag>;
+}
+
+Text.propTypes = {
+  tag: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  classNames: PropTypes.string.isRequired,
 };
 
 export default Text;

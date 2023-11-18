@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import { Button } from '@nextui-org/button';
 import { Tooltip } from '@nextui-org/tooltip';
 import { PiList, PiMapPin } from 'react-icons/pi';
 
-const NavButton = ({ type, tip }) => {
+function NavButton({ type, tip }) {
   let iconComponent;
   let hideButtonClass = '';
 
@@ -19,7 +20,7 @@ const NavButton = ({ type, tip }) => {
   }
 
   return (
-    <Tooltip showArrow={true} placement="right" content={tip}>
+    <Tooltip showArrow placement="right" content={tip}>
       <Button
         isIconOnly
         className={`flex ${hideButtonClass} bg-transparent justify-center items-center w-10 h-10 rounded-2xl border border-black/20 dark:border-white/20 hover:button-hover dark:hover:button-hover-dark active:scale-90 transition-transform`}
@@ -28,6 +29,11 @@ const NavButton = ({ type, tip }) => {
       </Button>
     </Tooltip>
   );
+}
+
+NavButton.propTypes = {
+  type: PropTypes.string.isRequired,
+  tip: PropTypes.string.isRequired,
 };
 
 export default NavButton;

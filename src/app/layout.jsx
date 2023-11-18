@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Providers } from './providers';
+import Providers from './providers';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] });
 
@@ -12,9 +13,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html suppressHydrationWarning lang="ru">
-      <body className={`${inter.className} text-black dark:text-white bg-white dark:bg-black`}>
+      <body
+        className={`${inter.className} text-black dark:text-white bg-white dark:bg-black`}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
   );
 }
+
+RootLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};

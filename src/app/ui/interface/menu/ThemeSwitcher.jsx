@@ -1,12 +1,12 @@
 'use client';
 
+import { Switch } from '@nextui-org/switch';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { Switch } from '@nextui-org/switch';
-import { PiSunFill, PiMoonFill } from 'react-icons/pi';
-import Text from './Text.jsx'
+import { PiMoonFill, PiSunFill } from 'react-icons/pi';
+import Text from '../../primitives/Text.jsx';
 
-export function ThemeSwitcher() {
+function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -21,8 +21,8 @@ export function ThemeSwitcher() {
   };
 
   return (
-    <div className='flex flex-row justify-between items-center w-full h-min'>
-			<Text tag={'h4'} text={'Оформление'}/>
+    <div className="flex flex-row justify-between items-center w-full h-min">
+      <Text tag="h4" text="Оформление" />
       <Switch
         defaultSelected={theme === 'dark'}
         size="lg"
@@ -34,3 +34,5 @@ export function ThemeSwitcher() {
     </div>
   );
 }
+
+export default ThemeSwitcher;

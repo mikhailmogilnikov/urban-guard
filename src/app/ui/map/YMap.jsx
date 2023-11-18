@@ -1,5 +1,5 @@
-const Map = () => {
-  return (<div className="w-full h-full"></div>);
-};
+function Map() {
+  return (<div className="w-full h-full" />);
+}
 
 export default Map;

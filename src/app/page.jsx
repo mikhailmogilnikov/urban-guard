@@ -1,6 +1,6 @@
-import Header from './ui/Header.jsx';
-import EventList from './ui/event-list/EventList.jsx';
 import Map from './ui/map/YMap.jsx';
+import EventList from './ui/interface/event-list/EventList.jsx';
+import Header from './ui/interface/header/Header.jsx';
 
 export default function Home() {
   return (

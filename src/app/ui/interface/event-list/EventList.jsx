@@ -1,10 +1,8 @@
 import testEvents from '@/testEvents/testEvents.js';
+import ThemeSwitcher from '../menu/ThemeSwitcher.jsx';
 import EventItem from './EventItem.jsx';
-import { ThemeSwitcher } from '../primitives/ThemeSwitcher.jsx'
 
-const currDay = new Date('29.11.2023');
-
-const EventList = () => {
+function EventList() {
   return (
     <aside className="w-full h-min flex flex-col gap-4 p-5 overflow-y-scroll">
       {testEvents.reverse().map((event) => (
@@ -19,6 +17,6 @@ const EventList = () => {
       <ThemeSwitcher />
     </aside>
   );
-};
+}
 
 export default EventList;
