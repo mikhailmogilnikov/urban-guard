@@ -21,7 +21,7 @@ function NavButton({ type, tip }) {
 
   return (
     <Tooltip
-      placement="right"
+      placement="bottom"
       classNames={{
         content: ['font-medium'],
       }}

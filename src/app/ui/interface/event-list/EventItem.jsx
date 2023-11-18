@@ -11,8 +11,8 @@ function EventItem({ state, type, time }) {
       <div
         className={`${
           state === 'confirmed'
-            ? 'bg-red-500 shadow-red animate-pulse'
-            : 'bg-yellow-500 shadow-yellow'
+            ? 'bg-red-600 dark:bg-red-500 shadow-red animate-pulse'
+            : 'bg-yellow-300 shadow-yellow'
         } w-2 h-2 rounded-full `}
       />
       <div className="flex flex-col gap-1 items-start">
