@@ -3,10 +3,10 @@ const Text = ({ tag, text, classNames }) => {
 
   switch (tag) {
     case 'h1':
-      textStyles = '';
+      textStyles = 'font-bold text-xl';
       break;
     case 'h2':
-      textStyles = '';
+      textStyles = 'text-lg font-semibold';
       break;
     case 'h4':
       textStyles = 'text-md font-semibold';
@@ -20,7 +20,11 @@ const Text = ({ tag, text, classNames }) => {
 
   const Tag = tag || 'p';
 
-  return <Tag className={`${textStyles} ${classNames}`}>{text}</Tag>;
+  return (
+    <Tag className={`${textStyles} ${!!classNames ? classNames : ''}`}>
+      {text}
+    </Tag>
+  );
 };
 
 export default Text;
