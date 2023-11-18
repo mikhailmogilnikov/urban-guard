@@ -1,4 +1,4 @@
-name: Validator
+name: Build
 
 on:
   - push
