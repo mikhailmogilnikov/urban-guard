@@ -1,5 +1,3 @@
-'use client';
-
 import { ScrollShadow } from '@nextui-org/scroll-shadow';
 import _ from 'lodash';
 import testEvents from '@/testEvents/testEvents.js';
@@ -77,28 +75,28 @@ function EventList() {
 
   return (
     <ScrollShadow className="w-full h-full hidden lg:flex flex-col gap-10 overflow-y-scroll p-5 md:pr-4">
-      {Object.keys(groupedEvents).map(
-        (category) => groupedEvents[category].length > 0 && (
-        <div className="w-full flex flex-col gap-4">
-          <Text tag="h4" text={getCategoryText(category)} />
-          {groupedEvents[category].map((event) => (
-            <EventItem
-              key={event.id}
-              state={event.state}
-              type={event.type}
-              address={event.address}
-              date={event.date}
-              time={event.time}
-              formattedDateTime={getFormattedDateTime(
-                event.date,
-                event.time,
-                category,
-              )}
-            />
-          ))}
-        </div>
-        ),
-      )}
+      {Object.keys(groupedEvents).map((category) => (
+        groupedEvents[category].length > 0 && (
+          <div key={category} className="w-full flex flex-col gap-4">
+            <Text tag="h4" text={getCategoryText(category)} />
+            {groupedEvents[category].map((event) => (
+              <EventItem
+                key={event.id}
+                state={event.state}
+                type={event.type}
+                address={event.address}
+                date={event.date}
+                time={event.time}
+                formattedDateTime={getFormattedDateTime(
+                  event.date,
+                  event.time,
+                  category,
+                )}
+              />
+            ))}
+          </div>
+        )
+      ))}
       <ThemeSwitcher />
     </ScrollShadow>
   );
