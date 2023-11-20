@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Button } from '@nextui-org/button';
 import { Tooltip } from '@nextui-org/tooltip';
 import { PiList, PiMapPin } from 'react-icons/pi';
@@ -37,10 +36,5 @@ function NavButton({ type, tip }) {
     </Tooltip>
   );
 }
-
-NavButton.propTypes = {
-  type: PropTypes.string.isRequired,
-  tip: PropTypes.string.isRequired,
-};
 
 export default NavButton;
