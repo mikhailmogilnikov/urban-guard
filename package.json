@@ -16,6 +16,8 @@
     "eslint-plugin-prettier": "^5.0.1",
     "framer-motion": "^10.16.5",
     "lodash": "^4.17.21",
+    "mobx": "^6.11.0",
+    "mobx-react-lite": "^4.0.5",
     "moment": "^2.29.4",
     "next": "^14.0.2",
     "next-themes": "^0.2.1",
