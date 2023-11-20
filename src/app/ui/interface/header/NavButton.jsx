@@ -22,6 +22,7 @@ function NavButton({ type, tip }) {
   return (
     <Tooltip
       placement="bottom"
+      closeDelay={100}
       classNames={{
         content: ['font-medium'],
       }}

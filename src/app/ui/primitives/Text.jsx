@@ -14,7 +14,7 @@ function Text({ tag = 'p', text = '', classNames = '' }) {
       textStyles = 'text-md font-semibold';
       break;
     case 'h5':
-      textStyles = 'text-sm';
+      textStyles = 'text-sm font-medium';
       break;
     default:
       textStyles = 'text-xs';

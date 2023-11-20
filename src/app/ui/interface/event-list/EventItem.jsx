@@ -1,31 +1,40 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import Text from '../../primitives/Text.jsx';
 
-function EventItem({ state, type, time }) {
+function EventItem({
+  state, type, address, time,
+}) {
+  const area = address.split(',')[0].trim();
   return (
-    <button
-      type="button"
-      aria-label={type}
-      className="w-full h-20 px-6 flex flex-row gap-5 items-center rounded-[30px] border border-black/20 dark:border-white/20 hover:button-hover dark:hover:button-hover-dark active:scale-95 transition-transform"
+    <motion.button
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+      className="w-full h-24 px-6 flex flex-row flex-shrink-0 gap-5 items-center rounded-[34px] border border-black/20 dark:border-white/20"
     >
       <div
         className={`${
           state === 'confirmed'
-            ? 'bg-red-600 dark:bg-red-500 shadow-red animate-pulse'
-            : 'bg-yellow-300 shadow-yellow'
+            ? 'bg-red-600 dark:bg-red-500 shadow-red dark:shadow-red-dark animate-pulse'
+            : 'bg-yellow-400 dark:bg-yellow-300 shadow-yellow'
         } w-2 h-2 rounded-full `}
       />
-      <div className="flex flex-col gap-1 items-start">
+      <div className="flex flex-col gap-1 items-start text-left">
         <Text tag="h4" text={type} />
+        <Text classNames="opacity-50" text={area} />
         <Text classNames="opacity-50" text={time} />
       </div>
-    </button>
+    </motion.button>
   );
 }
 
 EventItem.propTypes = {
   state: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
 };
 
