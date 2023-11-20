@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 function Text({ tag = 'p', text = '', classNames = '' }) {
   let textStyles;
 
@@ -24,11 +22,5 @@ function Text({ tag = 'p', text = '', classNames = '' }) {
 
   return <Tag className={`${textStyles} ${classNames}`}>{text}</Tag>;
 }
-
-Text.propTypes = {
-  tag: PropTypes.string,
-  text: PropTypes.string,
-  classNames: PropTypes.string,
-};
 
 export default Text;

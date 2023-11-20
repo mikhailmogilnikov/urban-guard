@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Providers from './providers';
@@ -21,7 +20,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
-RootLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-};

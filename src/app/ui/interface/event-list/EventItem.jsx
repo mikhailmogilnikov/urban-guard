@@ -1,11 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
 import Text from '../../primitives/Text.jsx';
 
 function EventItem({
-  state, type, address, time,
+  state, type, address, formattedDateTime,
 }) {
   const area = address.split(',')[0].trim();
   return (
@@ -25,17 +24,10 @@ function EventItem({
       <div className="flex flex-col gap-1 items-start text-left">
         <Text tag="h4" text={type} />
         <Text classNames="opacity-50" text={area} />
-        <Text classNames="opacity-50" text={time} />
+        <Text classNames="opacity-50" text={formattedDateTime} />
       </div>
     </motion.button>
   );
 }
-
-EventItem.propTypes = {
-  state: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
-};
 
 export default EventItem;
