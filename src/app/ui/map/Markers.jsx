@@ -21,6 +21,7 @@ const Markers = observer(({ YMapMarker }) => {
           state={popup === index}
           coordinates={item.coordinates}
           popupContent={item.type}
+          markerState={item.state}
           YMapMarker={YMapMarker}
         />
       ))}

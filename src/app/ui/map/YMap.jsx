@@ -35,7 +35,7 @@ function Map() {
 
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <YMap margin={[20, 20, 20, 20]} location={location} ref={mapRef}>
+      <YMap location={location} ref={mapRef}>
         <YMapDefaultSchemeLayer theme={theme} />
         <YMapDefaultFeaturesLayer />
 

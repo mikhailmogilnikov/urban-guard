@@ -74,26 +74,11 @@ select:-webkit-autofill:focus {
 
 
 .my-marker {
-  transform: translate(-3px, -28px);
+  transform: translate(-2px, -20px);
 }
 
 .my-marker__pin {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 40px;
-  height: 40px;
-  margin: -2.2em 0 0 -1.3em;
-  padding: 0 3px 3px 0;
-
-  cursor: pointer;
-
   border-radius: 50% 50% 50% 0;
-  background: #bc13fe;
-  box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.5);
-
-  transform: perspective(40px) rotateX(20deg) rotateZ(-45deg);
 }
 
 .my-marker__pin::after {
@@ -101,22 +86,13 @@ select:-webkit-autofill:focus {
 
   width: 1em;
   height: 1em;
-  margin: 1em 0 0 0.7em;
+  margin: -0.5em 0 0 -0.5em;
 
   content: '';
 
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.my-marker__beacon {
-  position: absolute;
-  z-index: -1;
-
-  width: 3em;
-
-  transform: translateX(-50%);
 }
 
 .my-marker__animation {
@@ -130,9 +106,9 @@ select:-webkit-autofill:focus {
   content: '';
 
   border-radius: 50%;
-  box-shadow: 0 0 0 3px #bc13fe;
+  box-shadow: 0 0 0 3px #fe1313;
 
-  transform: scale(0.1);
+  transform: scale(0.3);
   animation: activateMarker 2s infinite linear;
 }
 
@@ -216,7 +192,7 @@ select:-webkit-autofill:focus {
   100% {
     opacity: 0;
 
-    transform: scale(2.5);
+    transform: scale(1.5);
   }
 }
 
