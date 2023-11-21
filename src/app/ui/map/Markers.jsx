@@ -22,9 +22,7 @@ const Markers = observer(({ YMapMarker }) => {
           key={`m${item.id}`}
           isActive={activeMarkerIndex === index}
           onClick={() => handleMarkerClick(index)}
-          coordinates={item.coordinates}
-          popupContent={item.type}
-          markerState={item.state}
+          item={item}
           YMapMarker={YMapMarker}
         />
       ))}

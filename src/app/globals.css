@@ -27,20 +27,21 @@
 :root {
   --color: #000000;
   --bg-color: #ffffff;
+  --scrollbar: #7d7d7d;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color: #ffffff;
-    --bg-color: #000000;
-  }
+[data-theme='dark'] {
+  --color: #ffffff;
+  --bg-color: #000000;
+  --scrollbar: #222222;
 }
 
 *::-webkit-scrollbar {
   overflow: overlay;
   height: 12px;
-  width: 7px;
+  width: 4px;
   position: absolute;
+  cursor: grab;
 }
 
 *::-webkit-scrollbar-track {
@@ -50,7 +51,7 @@
 
 *::-webkit-scrollbar-thumb {
   overflow: overlay;
-  background-color: gray;
+  background-color: var(--scrollbar);
   border-radius: 5px;
 }
 
@@ -71,7 +72,6 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: var(--color) !important;
   transition: background-color 5000s ease-in-out 0s;
 }
-
 
 .my-marker {
   transform: translate(-2px, -20px);
@@ -304,8 +304,6 @@ select:-webkit-autofill:focus {
 
   width: 24px;
   padding: 0;
-
-  
 }
 
 .left-popup__btn:hover {
