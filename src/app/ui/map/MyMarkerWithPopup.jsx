@@ -7,9 +7,8 @@ function MyMarkerWithPopup({
   coordinates,
   popupContent,
   YMapMarker,
-  state,
-  openPopup,
-  closePopup,
+  isActive,
+  onClick,
   markerState,
 }) {
   let markerColor;
@@ -33,28 +32,23 @@ function MyMarkerWithPopup({
       markerColor = '';
   }
 
-  const [popupVisible, setPopupVisible] = useState(false);
+  const [, setPopupVisible] = useState(false);
 
-  const handleOpenPopup = () => {
-    openPopup();
-    setPopupVisible(true);
-  };
-
-  const handlePopupClose = () => {
-    closePopup();
-    setPopupVisible(false);
+  const handleMarkerClick = () => {
+    onClick();
+    setPopupVisible(!isActive);
   };
 
   return (
-    <YMapMarker coordinates={coordinates} zIndex={state === true ? 1 : 0}>
+    <YMapMarker coordinates={coordinates} zIndex={isActive === true ? 1 : 0}>
       <div className="my-marker">
         <button
           type="button"
           aria-label="openPopup"
           className={`my-marker__pin absolute top-1/2 left-1/2 w-10 h-10 -mt-[2em] -ml-[1.2em] -rotate-45 cursor-pointer shadow-xl shadow-orange-500/20 ${markerColor}`}
-          onClick={handleOpenPopup}
+          onClick={handleMarkerClick}
         />
-        {!state && markerState === 'confirmed' && (
+        {!isActive && markerState === 'confirmed' && (
           <div className="absolute -z-[1] w-[3em] -translate-x-1/2">
             <div className="my-marker__animation absolute top-0 left-0 w-[3em] h-[3em] rounded-full scale-[0.3]" />
             <div className="my-marker__animation absolute top-0 left-0 w-[3em] h-[3em] rounded-full scale-[0.3]  my-marker__animation-delay" />
@@ -62,7 +56,7 @@ function MyMarkerWithPopup({
         )}
       </div>
       <AnimatePresence>
-        {popupVisible && (
+        {isActive && (
           <motion.div
             initial={{ scale: 0.5, translate: '-50% 0.5rem' }}
             whileHover={{ scale: 1.04 }}
@@ -80,7 +74,7 @@ function MyMarkerWithPopup({
               <div className="w-full aspect-video bg-white/10" />
               <button
                 type="button"
-                onClick={handlePopupClose}
+                onClick={handleMarkerClick}
                 className="w-full h-min flex flex-col gap-3 p-5"
               >
                 <Text tag="h2" classNames="text-white" text={popupContent} />

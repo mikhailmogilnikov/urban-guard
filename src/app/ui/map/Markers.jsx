@@ -6,19 +6,22 @@ import MyMarkerWithPopup from './MyMarkerWithPopup.jsx';
 import { useStore } from '@/store/store.js';
 
 const Markers = observer(({ YMapMarker }) => {
-  const [popup, setPopup] = useState(null);
+  const [activeMarkerIndex, setActiveMarkerIndex] = useState(null);
   const { eventsStore } = useStore();
 
   const e = JSON.parse(JSON.stringify(eventsStore.events));
+
+  const handleMarkerClick = (index) => {
+    setActiveMarkerIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
 
   return (
     <>
       {e.map((item, index) => (
         <MyMarkerWithPopup
           key={`m${item.id}`}
-          openPopup={() => setPopup(index)}
-          closePopup={() => setPopup(null)}
-          state={popup === index}
+          isActive={activeMarkerIndex === index}
+          onClick={() => handleMarkerClick(index)}
           coordinates={item.coordinates}
           popupContent={item.type}
           markerState={item.state}
