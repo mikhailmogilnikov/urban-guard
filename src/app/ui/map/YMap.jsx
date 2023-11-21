@@ -31,18 +31,18 @@ function Map() {
     YMapControls,
     YMapMarker,
   } = reactifyApi.base;
-  const { YMapZoomControl } = reactifyApi;
+  const { YMapGeolocationControl } = reactifyApi;
 
   return (
-    <div className="w-full h-full flex justify-center items-center">
+    <div className="w-full h-full flex cursor-grab justify-center items-center">
       <YMap location={location} ref={mapRef}>
         <YMapDefaultSchemeLayer theme={theme} />
         <YMapDefaultFeaturesLayer />
 
         <Markers YMapMarker={YMapMarker} />
 
-        <YMapControls position="right">
-          <YMapZoomControl />
+        <YMapControls position="bottom right">
+          <YMapGeolocationControl />
         </YMapControls>
       </YMap>
     </div>

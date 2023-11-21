@@ -96,53 +96,12 @@ select:-webkit-autofill:focus {
 }
 
 .my-marker__animation {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 3em;
-  height: 3em;
-
-  content: '';
-
-  border-radius: 50%;
   box-shadow: 0 0 0 3px #fe1313;
-
-  transform: scale(0.3);
   animation: activateMarker 2s infinite linear;
 }
 
 .my-marker__animation-delay {
   animation-delay: 1s;
-}
-
-.popup {
-  position: absolute;
-
-  font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
-
-  opacity: 0.9;
-  border-radius: 0.5rem;
-  background: #fff;
-  box-shadow: 0 0 8px 0 #0003;
-
-  transform: translate(20px, calc(-100% - 55px));
-}
-
-.popup::before {
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-
-  content: '';
-
-  opacity: 0.5;
-  border-radius: 0.5rem;
-  background: linear-gradient(to left, #ff5770, #c42da8, #9e16c3, #c42da8, #ff5770);
-  background-size: 200% 200%;
-
-  animation: animateGlow 1.25s linear infinite;
 }
 
 .popup__text {
