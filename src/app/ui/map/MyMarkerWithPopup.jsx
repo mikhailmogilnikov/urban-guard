@@ -1,7 +1,7 @@
 import { Chip } from '@nextui-org/chip';
 import { AnimatePresence, motion } from 'framer-motion';
-import Text from '../primitives/Text.jsx';
 import { useState } from 'react';
+import Text from '../primitives/Text.jsx';
 
 function MyMarkerWithPopup({
   coordinates,
