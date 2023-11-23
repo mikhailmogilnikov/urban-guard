@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { PiClockBold, PiMapPinBold } from 'react-icons/pi';
 import Text from '../primitives/Text.jsx';
 
-function MyMarkerWithPopup({ YMapMarker, isActive, onClick, item }) {
+function MyMarkerWithPopup({
+  YMapMarker, isActive, onClick, item,
+}) {
   let markerColor;
   let popupBorder;
   let chipType;
