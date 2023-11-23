@@ -74,7 +74,7 @@ function MyMarkerWithPopup({
             whileTap={{ scale: 0.98 }}
             exit={{ scale: 0.54, opacity: 0 }}
             transition={spring}
-            className="fixed w-[96vw] lg:w-[60vw] rounded-3xl origin-top aspect-video bg-white dark:bg-black z-20 border-1 border-black/20 dark:border-white/20 shadow-2xl shadow-black/60 cursor-pointer"
+            className="fixed w-[96vw] lg:w-[60vw] xl2:w-[60rem] rounded-3xl origin-top aspect-video bg-white dark:bg-black z-20 border-1 border-black/20 dark:border-white/20 shadow-2xl shadow-black/60 cursor-pointer"
             onClick={() => setSelectedId(null)}
           >
             <div className="w-full h-full rounded-[inherit] bg-black/10 dark:bg-white/10" />

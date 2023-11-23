@@ -11,6 +11,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xl2: '1720px',
+      },
       animation: {
         borderPulseRed: 'borderPulseRed 4s linear infinite',
         borderPulseYellow: 'borderPulseYellow 4s linear infinite',
