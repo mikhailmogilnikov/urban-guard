@@ -4,9 +4,7 @@ import { useState } from 'react';
 import { PiClockBold, PiMapPinBold } from 'react-icons/pi';
 import Text from '../primitives/Text.jsx';
 
-function MyMarkerWithPopup({
-  YMapMarker, isActive, onClick, item,
-}) {
+function MyMarkerWithPopup({ YMapMarker, isActive, onClick, item }) {
   let markerColor;
   let popupBorder;
   let chipType;
@@ -14,13 +12,13 @@ function MyMarkerWithPopup({
   switch (item.state) {
     case 'confirmed':
       markerColor = 'bg-red-600';
-      popupBorder = 'animate-borderPulseRed';
+      popupBorder = 'dark:animate-borderPulseRed';
       chipType = 'danger';
       chipContent = 'Подтверждённая угроза';
       break;
     case 'potential':
       markerColor = 'bg-yellow-500 dark:bg-yellow-400';
-      popupBorder = 'animate-borderPulseYellow';
+      popupBorder = 'dark:animate-borderPulseYellow';
       chipType = 'warning';
       chipContent = 'Потенциальная опасность';
       break;
@@ -29,6 +27,8 @@ function MyMarkerWithPopup({
   }
 
   const [, setPopupVisible] = useState(false);
+
+  const [selectedId, setSelectedId] = useState(null);
 
   const handleMarkerClick = () => {
     onClick();
@@ -55,6 +55,26 @@ function MyMarkerWithPopup({
         )}
       </div>
       <AnimatePresence>
+        {selectedId && isActive && (
+          <motion.div
+            initial={{ scale: 0.54, translate: '-50% 0.5rem' }}
+            animate={{ scale: 1 }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            exit={{ scale: 0.54, opacity: 0 }}
+            transition={{
+              type: 'spring',
+              stiffness: 260,
+              damping: 20,
+            }}
+            className="fixed w-[96vw] lg:w-[55vw] rounded-3xl origin-top aspect-video bg-white dark:bg-black z-20 border-white/20 shadow-2xl shadow-black/60 cursor-pointer"
+            onClick={() => setSelectedId(null)}
+          >
+            <div className="w-full h-full rounded-[inherit] bg-black/10 dark:bg-white/10" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
         {isActive && (
           <motion.div
             initial={{ scale: 0.5, translate: '-50% 0.5rem' }}
@@ -67,16 +87,19 @@ function MyMarkerWithPopup({
               stiffness: 260,
               damping: 20,
             }}
-            className={`w-[20rem] lg:w-[26rem] absolute rounded-[2rem] bg-black shadow-2xl shadow-black/80  lg:-translate-x-52 origin-top z-10 border-1 cursor-pointer border-white/20 overflow-hidden ${popupBorder}`}
+            className={`w-[20rem] lg:w-[26rem] absolute rounded-[2rem] bg-white dark:bg-black shadow-2xl shadow-black/80  lg:-translate-x-52 origin-top z-10 border-1 cursor-pointer border-black/20 dark:border-white/20 overflow-hidden ${popupBorder}`}
           >
             <div className="w-full h-min flex flex-col">
-              <div className="w-full aspect-video bg-white/10" />
+              <motion.div
+                onClick={() => setSelectedId(item.id)}
+                className="w-full aspect-video bg-black/10 dark:bg-white/10"
+              />
               <button
                 type="button"
                 onClick={handleMarkerClick}
                 className="w-full h-min flex flex-col gap-3 p-5"
               >
-                <Text tag="h2" classNames="text-white" text={item.type} />
+                <Text tag="h2" text={item.type} />
                 <Chip
                   color={chipType}
                   radius="md"
@@ -86,11 +109,11 @@ function MyMarkerWithPopup({
                   {chipContent}
                 </Chip>
                 <div className="pt-2 w-full h-min flex flex-col gap-3 text-start">
-                  <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center text-white">
+                  <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center ">
                     <PiClockBold size={16} className="flex-shrink-0" />
                     <Text tag="h5" text={`${item.date}, ${item.time}`} />
                   </div>
-                  <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center text-white">
+                  <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center ">
                     <PiMapPinBold size={16} className="flex-shrink-0" />
                     <Text tag="h5" text={item.address} />
                   </div>

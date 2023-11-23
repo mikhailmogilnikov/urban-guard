@@ -39,6 +39,9 @@ module.exports = {
               DEFAULT: '#FF6100',
               foreground: '#000000',
             },
+            danger: {
+              DEFAULT: '#FF6100',
+            },
             focus: '#FF6100',
           },
         },
