@@ -1,7 +1,7 @@
 import { Chip } from '@nextui-org/chip';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import { PiClockBold, PiMapPinBold } from 'react-icons/pi';
+import { PiClockBold, PiMapPinBold, PiQuestionBold } from 'react-icons/pi';
 import Text from '../primitives/Text.jsx';
 
 function MyMarkerWithPopup({
@@ -111,7 +111,7 @@ function MyMarkerWithPopup({
                 >
                   {chipContent}
                 </Chip>
-                <div className="pt-2 w-full h-min flex flex-col gap-3">
+                <div className="py-2 w-full h-min flex flex-col gap-3">
                   <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center">
                     <PiClockBold size={16} className="flex-shrink-0" />
                     <Text tag="h5" text={`${item.date}, ${item.time}`} />
@@ -120,6 +120,13 @@ function MyMarkerWithPopup({
                     <PiMapPinBold size={16} className="flex-shrink-0" />
                     <Text tag="h5" text={item.address} />
                   </div>
+                </div>
+                <div className="w-full h-min flex flex-row bg-black/10 dark:bg-white/10 p-4 rounded-3xl gap-4 opacity-50 items-center">
+                  <PiQuestionBold size={16} className="flex-shrink-0" />
+                  <Text
+                    classNames="font-medium"
+                    text="Нажмите на изображение, чтобы его увеличить. Нажмите на другую часть окна чтобы закрыть."
+                  />
                 </div>
               </button>
             </div>
