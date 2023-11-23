@@ -94,7 +94,7 @@ function MyMarkerWithPopup({
             <div className="w-full h-min flex flex-col">
               <motion.div
                 onClick={() => setSelectedId(item.id)}
-                className="w-full aspect-video bg-black/10 dark:bg-white/10"
+                className="w-full aspect-video bg-black/10 dark:bg-white/10 text-start"
               />
               <button
                 type="button"
@@ -110,12 +110,12 @@ function MyMarkerWithPopup({
                 >
                   {chipContent}
                 </Chip>
-                <div className="pt-2 w-full h-min flex flex-col gap-3 text-start">
-                  <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center ">
+                <div className="pt-2 w-full h-min flex flex-col gap-3">
+                  <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center">
                     <PiClockBold size={16} className="flex-shrink-0" />
                     <Text tag="h5" text={`${item.date}, ${item.time}`} />
                   </div>
-                  <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center ">
+                  <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center">
                     <PiMapPinBold size={16} className="flex-shrink-0" />
                     <Text tag="h5" text={item.address} />
                   </div>
