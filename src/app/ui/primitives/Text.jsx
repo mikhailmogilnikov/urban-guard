@@ -20,7 +20,7 @@ function Text({ tag = 'p', text = '', classNames = '' }) {
 
   const Tag = tag;
 
-  return <Tag className={`${textStyles} ${classNames}`}>{text}</Tag>;
+  return <Tag className={`${textStyles} text-start ${classNames}`}>{text}</Tag>;
 }
 
 export default Text;

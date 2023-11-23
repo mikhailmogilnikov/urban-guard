@@ -40,7 +40,8 @@ module.exports = {
               foreground: '#000000',
             },
             danger: {
-              DEFAULT: '#FF6100',
+              DEFAULT: '#d40000',
+              foreground: '#ffffff',
             },
             focus: '#FF6100',
           },
@@ -53,6 +54,10 @@ module.exports = {
             },
             success: {
               DEFAULT: 'rgb(58, 171, 64)',
+              foreground: '#000000',
+            },
+            danger: {
+              DEFAULT: '#d40000',
               foreground: '#000000',
             },
             focus: '#DB4600',
