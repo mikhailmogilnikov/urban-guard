@@ -74,7 +74,7 @@ function EventList() {
   }
 
   return (
-    <ScrollShadow className="w-full h-full hidden lg:flex flex-col gap-10 overflow-y-scroll p-5 md:pr-4">
+    <ScrollShadow className="w-full h-full flex flex-col gap-10 p-5 md:pr-4">
       {Object.keys(groupedEvents).map((category) => (
         groupedEvents[category].length > 0 && (
           <div key={category} className="w-full flex flex-col gap-4">

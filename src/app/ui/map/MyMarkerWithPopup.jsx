@@ -86,49 +86,59 @@ function MyMarkerWithPopup({
           <motion.div
             initial={{ scale: 0.5, translate: '-50% 0.5rem' }}
             whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
             animate={{ scale: 1 }}
             exit={{ opacity: 0 }}
             transition={spring}
             className={`w-[20rem] lg:w-[26rem] absolute rounded-[2rem] bg-white dark:bg-black shadow-2xl shadow-black/60 first-line:dark:shadow-black/80  lg:-translate-x-52 origin-top z-10 border-1 cursor-pointer border-black/20 dark:border-white/20 overflow-hidden ${popupBorder}`}
           >
             <div className="w-full h-min flex flex-col">
-              <motion.div
+              <button
+                type="button"
+                aria-label="Open Image"
                 onClick={() => setSelectedId(item.id)}
                 className="w-full aspect-video bg-black/10 dark:bg-white/10"
               />
-              <button
-                type="button"
-                onClick={handleMarkerClick}
-                className="w-full h-min flex flex-col gap-3 p-5"
-              >
-                <Text tag="h2" text={item.type} />
+              <div className="w-full h-min flex flex-col gap-3 p-5 cursor-auto">
+                <Text tag="h2" classNames="select-all" text={item.type} />
                 <Chip
                   color={chipType}
                   radius="md"
                   variant="flat"
-                  classNames={{ content: 'text-[13px]' }}
+                  classNames={{ content: 'text-[13px] cursor-default' }}
                 >
                   {chipContent}
                 </Chip>
                 <div className="py-2 w-full h-min flex flex-col gap-3">
                   <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center">
                     <PiClockBold size={16} className="flex-shrink-0" />
-                    <Text tag="h5" text={`${item.date}, ${item.time}`} />
+                    <Text
+                      tag="h5"
+                      classNames="select-all"
+                      text={`${item.date}, ${item.time}`}
+                    />
                   </div>
                   <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center">
                     <PiMapPinBold size={16} className="flex-shrink-0" />
-                    <Text tag="h5" text={item.address} />
+                    <Text
+                      tag="h5"
+                      classNames="select-all"
+                      text={item.address}
+                    />
                   </div>
                 </div>
-                <div className="w-full h-min flex flex-row bg-black/10 dark:bg-white/10 p-4 rounded-3xl gap-4 opacity-50 items-center">
+                <button
+                  type="button"
+                  aria-label="close"
+                  onClick={handleMarkerClick}
+                  className="w-full h-min flex flex-row bg-black/10 dark:bg-white/10 p-4 rounded-[20px] gap-4 opacity-50 items-center"
+                >
                   <PiQuestionBold size={16} className="flex-shrink-0" />
                   <Text
                     classNames="font-medium"
-                    text="Нажмите на изображение, чтобы его увеличить. Нажмите на другую часть окна чтобы закрыть."
+                    text="Нажмите на изображение, чтобы его увеличить."
                   />
-                </div>
-              </button>
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

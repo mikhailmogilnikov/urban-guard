@@ -34,7 +34,10 @@ function Map() {
   const { YMapGeolocationControl } = reactifyApi;
 
   return (
-    <div className="w-full h-full flex cursor-grab justify-center items-center">
+    <div
+      id="map-wrapper"
+      className="w-full h-full flex cursor-grab justify-center items-center"
+    >
       <YMap location={location} ref={mapRef}>
         <YMapDefaultSchemeLayer theme={theme} />
         <YMapDefaultFeaturesLayer />
