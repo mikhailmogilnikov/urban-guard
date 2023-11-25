@@ -28,10 +28,10 @@ function Map() {
     YMap,
     YMapDefaultSchemeLayer,
     YMapDefaultFeaturesLayer,
-    YMapControls,
+    // YMapControls,
     YMapMarker,
   } = reactifyApi.base;
-  const { YMapGeolocationControl } = reactifyApi;
+  // const { YMapGeolocationControl } = reactifyApi;
 
   return (
     <div
@@ -44,9 +44,9 @@ function Map() {
 
         <Markers YMapMarker={YMapMarker} />
 
-        <YMapControls position="bottom right">
+        {/* <YMapControls position="bottom right">
           <YMapGeolocationControl />
-        </YMapControls>
+        </YMapControls> */}
       </YMap>
     </div>
   );

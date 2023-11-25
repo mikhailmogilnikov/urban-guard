@@ -1,7 +1,6 @@
 import { ScrollShadow } from '@nextui-org/scroll-shadow';
 import _ from 'lodash';
 import testEvents from '@/testEvents/testEvents.js';
-import ThemeSwitcher from '../menu/ThemeSwitcher.jsx';
 import EventItem from './EventItem.jsx';
 import Text from '../../primitives/Text.jsx';
 
@@ -74,7 +73,7 @@ function EventList() {
   }
 
   return (
-    <ScrollShadow className="w-full h-full flex flex-col gap-10 p-5 md:pr-4">
+    <ScrollShadow className="w-full h-full flex flex-col overflow-y-scroll overflow-x-hidden gap-10 p-5 md:pr-4">
       {Object.keys(groupedEvents).map((category) => (
         groupedEvents[category].length > 0 && (
           <div key={category} className="w-full flex flex-col gap-4">
@@ -97,7 +96,6 @@ function EventList() {
           </div>
         )
       ))}
-      <ThemeSwitcher />
     </ScrollShadow>
   );
 }

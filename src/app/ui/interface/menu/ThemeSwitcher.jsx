@@ -29,6 +29,9 @@ function ThemeSwitcher() {
         color="success"
         startContent={<PiSunFill color="rgb(7, 71, 4)" />}
         endContent={<PiMoonFill />}
+        classNames={{
+          wrapper: 'm-0',
+        }}
         onChange={toggleTheme}
       />
     </div>
