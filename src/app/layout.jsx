@@ -6,12 +6,41 @@ const inter = Inter({ subsets: ['latin', 'cyrillic'] });
 
 export const metadata = {
   title: 'Urban Guard',
-  description: 'Система распознавания и оповещения о городских происшествиях.',
+  description: 'Система распознавания и оповещения о городских происшествиях',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html suppressHydrationWarning lang="ru">
+      <head>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/favicon/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <link
+          rel="mask-icon"
+          href="/favicon/safari-pinned-tab.svg"
+          color="#000000"
+        />
+        <meta name="apple-mobile-web-app-title" content="Urban Guard" />
+        <meta name="application-name" content="Urban Guard" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="theme-color" content="#000000" />
+      </head>
       <body
         className={`${inter.className} select-none overflow-hidden text-black dark:text-white bg-white dark:bg-black`}
       >
