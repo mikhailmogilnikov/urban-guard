@@ -1,6 +1,6 @@
 import { Button } from '@nextui-org/button';
 import { Tooltip } from '@nextui-org/tooltip';
-import { PiList, PiMapPin } from 'react-icons/pi';
+import { PiGearFine, PiListBullets } from 'react-icons/pi';
 
 function NavButton({
   type,
@@ -15,10 +15,10 @@ function NavButton({
 
   switch (type) {
     case 'menu':
-      iconComponent = <PiList size={24} />;
+      iconComponent = <PiGearFine size={24} />;
       break;
     case 'list':
-      iconComponent = <PiMapPin size={24} />;
+      iconComponent = <PiListBullets size={24} />;
       hideButtonClass = 'lg:hidden';
       break;
     default:
