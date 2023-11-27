@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 'use client';
 
 import Map from './ui/map/YMap.jsx';
@@ -5,18 +7,14 @@ import EventList from './ui/interface/event-list/EventList.jsx';
 import Header from './ui/interface/header/Header.jsx';
 
 export default function Home() {
-  // const themeValue = localStorage.getItem('theme');
-  // const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  const themeValue = localStorage.getItem('theme');
+  const newMetaTag = document.createElement('meta');
+  newMetaTag.name = 'theme-color';
+  document.head.appendChild(newMetaTag);
 
-  // if (!metaThemeColor) {
-  //   const newMetaTag = document.createElement('meta');
-  //   newMetaTag.name = 'theme-color';
-  //   document.head.appendChild(newMetaTag);
-  // }
-
-  // document
-  //   .querySelector('meta[name="theme-color"]')
-  //   .setAttribute('content', themeValue === 'light' ? '#ffffff' : '#000000');
+  document
+    .querySelector('meta[name="theme-color"]')
+    .setAttribute('content', themeValue === 'light' ? '#ffffff' : '#000000');
 
   return (
     <div className="flex flex-col lg:flex-row h-[100dvh]">
