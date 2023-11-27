@@ -1,0 +1,22 @@
+{
+	"short_name": "Urban Guard",
+	"name": "Urban Guard",
+	"icons": [
+		{
+			"src": "./favicon.ico",
+			"type": "image/png",
+			"sizes": "192x192",
+			"purpose": "maskable"
+		},
+		{
+			"src": "./favicon.ico",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		}
+	],
+	"start_url": ".",
+	"display": "fullscreen",
+	"background_color": "#000000",
+	"theme_color": "#000000"
+}

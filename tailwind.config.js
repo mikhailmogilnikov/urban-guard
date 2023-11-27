@@ -43,7 +43,7 @@ module.exports = {
               foreground: '#000000',
             },
             danger: {
-              DEFAULT: '#d40000',
+              DEFAULT: 'hsl(0, 74.69%, 52.58%)',
               foreground: '#ffffff',
             },
             focus: '#FF6100',
@@ -55,12 +55,12 @@ module.exports = {
               DEFAULT: '#DB4600',
               foreground: '#000000',
             },
-            success: {
-              DEFAULT: 'rgb(58, 171, 64)',
+            danger: {
+              DEFAULT: '#df2a2a',
               foreground: '#000000',
             },
-            danger: {
-              DEFAULT: '#d40000',
+            success: {
+              DEFAULT: 'rgb(58, 171, 64)',
               foreground: '#000000',
             },
             focus: '#DB4600',
