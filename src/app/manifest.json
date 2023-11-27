@@ -1,9 +1,16 @@
 {
-	"short_name": "Urban Guard",
-	"name": "Urban Guard",
-	"description": "Система распознавания и оповещения о городских происшествиях.",
-	"start_url": ".",
-	"display": "fullscreen",
-	"background_color": "#000000",
-	"theme_color": "#000000"
+  "short_name": "Urban Guard",
+  "name": "Urban Guard",
+  "description": "Система распознавания и оповещения о городских происшествиях.",
+  "start_url": ".",
+  "display": "fullscreen",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
 }
