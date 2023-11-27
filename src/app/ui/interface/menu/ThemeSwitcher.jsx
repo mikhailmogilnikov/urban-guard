@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 'use client';
 
 import { Switch } from '@nextui-org/switch';
@@ -16,8 +18,23 @@ function ThemeSwitcher() {
 
   if (!mounted) return null;
 
+  const setTopBarColor = () => {
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+    if (!metaThemeColor) {
+      const newMetaTag = document.createElement('meta');
+      newMetaTag.name = 'theme-color';
+      document.head.appendChild(newMetaTag);
+    }
+
+    document
+      .querySelector('meta[name="theme-color"]')
+      .setAttribute('content', theme === 'light' ? '#000000' : '#ffffff');
+  };
+
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
+    setTopBarColor();
   };
 
   return (
