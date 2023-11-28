@@ -46,14 +46,14 @@
 
 @media all and (display-mode: fullscreen) {
   .ymaps3x0--map-copyrights {
-    bottom: 12px !important;
+    bottom: 16px !important;
     right: 12px !important;
   }
 }
 
 @media all and (display-mode: standalone) {
   .ymaps3x0--map-copyrights {
-    bottom: 12px !important;
+    bottom: 16px !important;
     right: 12px !important;
   }
 }
