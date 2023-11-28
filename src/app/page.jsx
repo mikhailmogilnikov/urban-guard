@@ -2,19 +2,26 @@
 
 'use client';
 
+import { useTheme } from 'next-themes';
+import { useEffect } from 'react';
 import Map from './ui/map/YMap.jsx';
 import EventList from './ui/interface/event-list/EventList.jsx';
 import Header from './ui/interface/header/Header.jsx';
 
 export default function Home() {
-  const themeValue = localStorage.getItem('theme');
-  const newMetaTag = document.createElement('meta');
-  newMetaTag.name = 'theme-color';
-  document.head.appendChild(newMetaTag);
+  const { resolvedTheme } = useTheme();
 
-  document
-    .querySelector('meta[name="theme-color"]')
-    .setAttribute('content', themeValue === 'light' ? '#ffffff' : '#000000');
+  useEffect(() => {
+    if (resolvedTheme === 'dark') {
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute('content', '#000000');
+    } else {
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute('content', '#ffffff');
+    }
+  }, [resolvedTheme]);
 
   return (
     <div className="flex flex-col lg:flex-row h-[100dvh]">

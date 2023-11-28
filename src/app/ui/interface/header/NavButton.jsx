@@ -40,7 +40,7 @@ function NavButton({
     >
       <Button
         isIconOnly
-        onClick={click}
+        onPress={click}
         className={`flex ${hideButtonClass} bg-transparent justify-center items-center w-10 h-10 rounded-2xl border border-black/20 dark:border-white/20 hover:button-hover dark:hover:button-hover-dark active:scale-90 transition-transform ${active}`}
       >
         {iconComponent}

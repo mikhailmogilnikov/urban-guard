@@ -36,6 +36,7 @@ export default function RootLayout({ children }) {
         <meta name="application-name" content="Urban Guard" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="theme-color" content="#000" />
       </head>
       <body
         className={`${inter.className} select-none overflow-hidden text-black dark:text-white bg-white dark:bg-black`}

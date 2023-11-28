@@ -1,7 +1,7 @@
 'use client';
 
 import { NextUIProvider } from '@nextui-org/react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { ThemeProvider } from 'next-themes';
 import StoreProvider from '@/providers/store.provider.jsx';
 import { MapProvider } from '../providers/map.provider.jsx';
 
@@ -12,9 +12,9 @@ export default function Providers({ children }) {
     <MapProvider apiUrl={apiUrl}>
       <StoreProvider>
         <NextUIProvider>
-          <NextThemesProvider attribute="class" defaultTheme="dark">
+          <ThemeProvider attribute="class" defaultTheme="dark">
             {children}
-          </NextThemesProvider>
+          </ThemeProvider>
         </NextUIProvider>
       </StoreProvider>
     </MapProvider>
