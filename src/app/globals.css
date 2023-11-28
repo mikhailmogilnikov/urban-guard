@@ -44,6 +44,13 @@
   right: 4px !important;
 }
 
+@media all and (display-mode: fullscreen) {
+  .ymaps3x0--map-copyrights {
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+}
+
 .ymaps3x0--map-copyrights__text {
   display: none;
 }
