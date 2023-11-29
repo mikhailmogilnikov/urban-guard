@@ -45,7 +45,7 @@ const EventList = observer(() => {
       case 'other':
         return 'Ранее';
       default:
-        return '';
+        throw new Error('Undefined timestamp');
     }
   }
 
@@ -58,13 +58,19 @@ const EventList = observer(() => {
   });
 
   function getFormattedDateTime(date, category) {
-    const formattedTime = `${date.getHours()}.${date.getMinutes()}.${date.getSeconds()}`;
+    const normalizeValue = (value) => value.toString().padStart(2, '0');
+
+    const formattedTime = `${normalizeValue(date.getHours())}:${normalizeValue(
+      date.getMinutes(),
+    )}:${normalizeValue(date.getSeconds())}`;
 
     if (category === 'today' || category === 'yesterday') {
       return formattedTime;
     }
 
-    const formattedDate = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
+    const formattedDate = `${normalizeValue(date.getDate())}.${normalizeValue(
+      date.getMonth(),
+    )}.${date.getFullYear()}`;
 
     return `${formattedDate}, ${formattedTime}`;
   }

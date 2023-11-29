@@ -5,9 +5,7 @@ import { PiClockBold, PiMapPinBold, PiQuestionBold } from 'react-icons/pi';
 import Image from 'next/image.js';
 import Text from '../primitives/Text.jsx';
 
-function MyMarkerWithPopup({
-  YMapMarker, isActive, onClick, item,
-}) {
+function MyMarkerWithPopup({ YMapMarker, isActive, onClick, item }) {
   let markerColor;
   let popupBorder;
   let chipType;
@@ -44,6 +42,20 @@ function MyMarkerWithPopup({
     setPopupVisible(!isActive);
   };
 
+  const normalizeDate = (date) => {
+    const normalizeValue = (value) => value.toString().padStart(2, '0');
+
+    const formattedTime = `${normalizeValue(date.getHours())}:${normalizeValue(
+      date.getMinutes(),
+    )}:${normalizeValue(date.getSeconds())}`;
+
+    const formattedDate = `${normalizeValue(date.getDate())}.${normalizeValue(
+      date.getMonth(),
+    )}.${date.getFullYear()}`;
+
+    return `${formattedDate}, ${formattedTime}`;
+  };
+
   return (
     <YMapMarker
       coordinates={item.coordinates}
@@ -60,7 +72,7 @@ function MyMarkerWithPopup({
           className={`my-marker__pin absolute top-1/2 left-1/2 w-10 h-10 -mt-[2em] -ml-[1.2em] cursor-pointer shadow-xl shadow-orange-500/20 origin-bottom-left ${markerColor}`}
           onClick={handleMarkerClick}
         />
-        {!isActive && item.state === 'confirmed' && (
+        {!isActive && state === 1 && (
           <div className="absolute -z-[1] w-[3em] -translate-x-1/2">
             <div className="my-marker__animation absolute top-0 left-0 w-[3em] h-[3em] rounded-full scale-[0.3]" />
             <div className="my-marker__animation absolute top-0 left-0 w-[3em] h-[3em] rounded-full scale-[0.3]  my-marker__animation-delay" />
@@ -79,13 +91,13 @@ function MyMarkerWithPopup({
             className="fixed w-[96vw] lg:w-[60vw] xl2:w-[60rem] rounded-3xl origin-top aspect-video bg-default-50 dark:bg-default-50 z-20 border-1 border-black/20 dark:border-white/20 shadow-2xl shadow-black/60 cursor-pointer"
             onClick={() => setSelectedId(null)}
           >
-            <Image
+            {/* <Image
               src={item.image}
               fill
               alt={item.type}
               loading={isActive ? 'eager' : 'lazy'}
               style={{ borderRadius: 'inherit' }}
-            />
+            /> */}
           </motion.div>
         )}
       </AnimatePresence>
@@ -106,13 +118,13 @@ function MyMarkerWithPopup({
                 onClick={() => setSelectedId(item.id)}
                 className="w-full aspect-video bg-default-50 dark:bg-default-50"
               >
-                <Image
+                {/* <Image
                   src={item.image}
                   width={414}
                   height={233}
                   loading={isActive ? 'eager' : 'lazy'}
                   alt={item.type}
-                />
+                /> */}
               </button>
               <div className="w-full h-min flex flex-col gap-3 p-5 cursor-auto">
                 <Text tag="h2" classNames="select-all" text={item.type} />
@@ -130,7 +142,7 @@ function MyMarkerWithPopup({
                     <Text
                       tag="h5"
                       classNames="select-all"
-                      text={`${item.date}, ${item.time}`}
+                      text={normalizeDate(new Date(item.date))}
                     />
                   </div>
                   <div className="w-full h-min flex flex-row gap-2 opacity-70 items-center">
