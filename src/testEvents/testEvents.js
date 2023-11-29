@@ -6,7 +6,7 @@ const testEvents = [
     time: '15:21:34',
     coordinates: [37.599423, 55.708932],
     address: 'Район Обручевский, ул. Ленина, д. 117',
-    image: '',
+    image: '/photo_2023-11-28 21.47.38.jpeg',
     state: 'confirmed',
   },
   {

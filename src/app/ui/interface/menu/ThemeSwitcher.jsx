@@ -18,15 +18,8 @@ function ThemeSwitcher() {
 
   if (!mounted) return null;
 
-  // const setTopBarColor = () => {
-  //   document
-  //     .querySelector('meta[name="theme-color"]')
-  //     .setAttribute('content', theme === 'light' ? '#000000' : '#ffffff');
-  // };
-
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
-    // setTopBarColor();
   };
 
   return (
