@@ -2,6 +2,7 @@ import { Chip } from '@nextui-org/chip';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { PiClockBold, PiMapPinBold, PiQuestionBold } from 'react-icons/pi';
+import Image from 'next/image.js';
 import Text from '../primitives/Text.jsx';
 
 function MyMarkerWithPopup({
@@ -75,10 +76,16 @@ function MyMarkerWithPopup({
             whileTap={{ scale: 0.98 }}
             exit={{ scale: 0.54, opacity: 0 }}
             transition={spring}
-            className="fixed w-[96vw] lg:w-[60vw] xl2:w-[60rem] rounded-3xl origin-top aspect-video bg-white dark:bg-black z-20 border-1 border-black/20 dark:border-white/20 shadow-2xl shadow-black/60 cursor-pointer"
+            className="fixed w-[96vw] lg:w-[60vw] xl2:w-[60rem] rounded-3xl origin-top aspect-video bg-default-50 dark:bg-default-50 z-20 border-1 border-black/20 dark:border-white/20 shadow-2xl shadow-black/60 cursor-pointer"
             onClick={() => setSelectedId(null)}
           >
-            <div className="w-full h-full rounded-[inherit] bg-black/10 dark:bg-white/10" />
+            <Image
+              src={item.image}
+              fill
+              alt={item.type}
+              loading={isActive ? 'eager' : 'lazy'}
+              style={{ borderRadius: 'inherit' }}
+            />
           </motion.div>
         )}
       </AnimatePresence>
@@ -97,8 +104,16 @@ function MyMarkerWithPopup({
                 type="button"
                 aria-label="Open Image"
                 onClick={() => setSelectedId(item.id)}
-                className="w-full aspect-video bg-black/10 dark:bg-white/10"
-              />
+                className="w-full aspect-video bg-default-50 dark:bg-default-50"
+              >
+                <Image
+                  src={item.image}
+                  width={414}
+                  height={233}
+                  loading={isActive ? 'eager' : 'lazy'}
+                  alt={item.type}
+                />
+              </button>
               <div className="w-full h-min flex flex-col gap-3 p-5 cursor-auto">
                 <Text tag="h2" classNames="select-all" text={item.type} />
                 <Chip

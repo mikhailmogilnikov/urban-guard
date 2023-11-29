@@ -5,7 +5,7 @@ const testEvents = [
     date: new Date('Mon, 01 May 2023 08:30:45 GMT'),
     coordinates: [37.599423, 55.708932],
     address: 'Район Обручевский, ул. Ленина, д. 117',
-    image: '',
+    image: '/photo_2023-11-28 21.47.38.jpeg',
     state: 'confirmed',
   },
   {
