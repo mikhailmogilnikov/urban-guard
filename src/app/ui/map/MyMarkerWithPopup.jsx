@@ -16,14 +16,15 @@ function MyMarkerWithPopup({
     stiffness: 260,
     damping: 20,
   };
-  switch (item.state) {
-    case 'confirmed':
+  const state = Number(item.state);
+  switch (state) {
+    case 1:
       markerColor = 'bg-red-600';
       popupBorder = 'dark:animate-borderPulseRed';
       chipType = 'danger';
       chipContent = 'Подтверждённая угроза';
       break;
-    case 'potential':
+    case 0:
       markerColor = 'bg-yellow-500 dark:bg-yellow-400';
       popupBorder = 'dark:animate-borderPulseYellow';
       chipType = 'warning';

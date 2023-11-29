@@ -1,17 +1,25 @@
 import { useEffect } from 'react';
 import { StoreContext, useStore } from '@/store/store';
-import testEvents from '@/testEvents/testEvents';
+import axiosInstance from '@/utility/http';
+import { postDataTransformer } from '@/utility/httpConv';
 
 export default function StoreProvider({ children }) {
   const store = useStore();
 
   useEffect(() => {
-    store.eventsStore.setEvents(testEvents);
+    axiosInstance
+      .get('/api/events')
+      .then((response) => {
+        const eventsData = response.data.events;
+        const transformEventsData = postDataTransformer(eventsData);
+        store.eventsStore.setEvents(transformEventsData);
+      })
+      .catch((e) => {
+        console.error('Error fetching posts:', e);
+      });
   }, []);
 
   return (
-    <StoreContext.Provider value={store}>
-      {children}
-    </StoreContext.Provider>
+    <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
   );
 }

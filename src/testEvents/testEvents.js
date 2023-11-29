@@ -2,8 +2,7 @@ const testEvents = [
   {
     id: 1,
     type: 'Пожар',
-    date: '20-11-2023',
-    time: '15:21:34',
+    date: new Date('Mon, 01 May 2023 08:30:45 GMT'),
     coordinates: [37.599423, 55.708932],
     address: 'Район Обручевский, ул. Ленина, д. 117',
     image: '',
@@ -12,8 +11,7 @@ const testEvents = [
   {
     id: 2,
     type: 'ДТП',
-    date: '19-11-2023',
-    time: '17:39:55',
+    date: new Date('Sun, 02 Jul 2023 11:20:15 GMT'),
     coordinates: [37.598117, 55.758422],
     address: 'Район Пресненский, ул. Тверская, д. 45',
     image: '',
@@ -22,8 +20,7 @@ const testEvents = [
   {
     id: 3,
     type: 'Вооруженный человек',
-    date: '20-11-2023',
-    time: '12:15:28',
+    date: new Date('Mon, 01 May 2023 08:30:45 GMT'),
     coordinates: [37.652035, 55.763678],
     address: 'Район Басманный, ул. Садовая, д. 15',
     image: '',
@@ -32,8 +29,7 @@ const testEvents = [
   {
     id: 4,
     type: 'Скопление людей',
-    date: '17-11-2023',
-    time: '19:48:10',
+    date: new Date('Tue, 03 Oct 2023 14:45:30 GMT'),
     coordinates: [37.670528, 55.726730],
     address: 'Район Южнопортовый, ул. Набережная, д. 5',
     image: '',
@@ -42,8 +38,7 @@ const testEvents = [
   {
     id: 5,
     type: 'Пожар',
-    date: '17-11-2023',
-    time: '08:30:45',
+    date: new Date('Mon, 01 May 2023 08:30:45 GMT'),
     coordinates: [37.663174, 55.741279],
     address: 'Район Таганский, ул. Московская, д. 88',
     image: '',
@@ -52,8 +47,7 @@ const testEvents = [
   {
     id: 6,
     type: 'Вооруженный человек',
-    date: '20-11-2023',
-    time: '14:02:17',
+    date: new Date('Mon, 01 May 2023 08:30:45 GMT'),
     coordinates: [37.564081, 55.740251],
     address: 'Район Хамовники, ул. Смоленская, д. 22',
     image: '',

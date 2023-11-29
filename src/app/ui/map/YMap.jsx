@@ -28,10 +28,8 @@ function Map() {
     YMap,
     YMapDefaultSchemeLayer,
     YMapDefaultFeaturesLayer,
-    // YMapControls,
     YMapMarker,
   } = reactifyApi.base;
-  // const { YMapGeolocationControl } = reactifyApi;
 
   return (
     <div
@@ -43,10 +41,6 @@ function Map() {
         <YMapDefaultFeaturesLayer />
 
         <Markers YMapMarker={YMapMarker} />
-
-        {/* <YMapControls position="bottom right">
-          <YMapGeolocationControl />
-        </YMapControls> */}
       </YMap>
     </div>
   );
