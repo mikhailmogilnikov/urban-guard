@@ -6,7 +6,9 @@ import Image from 'next/image.js';
 import Text from '../primitives/Text.jsx';
 import postFile from '@/utility/postFile.js';
 
-function MyMarkerWithPopup({ YMapMarker, isActive, onClick, item }) {
+function MyMarkerWithPopup({
+  YMapMarker, isActive, onClick, item,
+}) {
   let markerColor;
   let popupBorder;
   let chipType;

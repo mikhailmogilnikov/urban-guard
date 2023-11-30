@@ -4,12 +4,12 @@ import { observer } from 'mobx-react-lite';
 import EventItem from './EventItem.jsx';
 import Text from '../../primitives/Text.jsx';
 import { useStore } from '@/store/store.js';
+import ListPreloader from './ListPreloader.jsx';
 
 const todayDate = new Date(Date.now());
 
 const EventList = observer(() => {
   const { eventsStore } = useStore();
-  if (eventsStore === null) return (<div />);
 
   const eventsData = JSON.parse(JSON.stringify(eventsStore.events ? eventsStore.events : []));
 
@@ -79,6 +79,7 @@ const EventList = observer(() => {
 
   return (
     <ScrollShadow className="w-full h-full flex flex-col overflow-y-scroll overflow-x-hidden gap-10 p-5 md:pr-4">
+      <ListPreloader />
       {Object.keys(groupedEvents).map(
         (category) => groupedEvents[category].length > 0 && (
         <div key={category} className="w-full flex flex-col gap-4">
