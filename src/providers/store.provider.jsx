@@ -13,9 +13,9 @@ export default function StoreProvider({ children }) {
       .then((response) => {
         const eventsData = response.data.events ? response.data.events : [];
         const transformEventsData = postDataTransformer(eventsData);
-        // setTimeout(() => {
-        store.eventsStore.setEvents(transformEventsData);
-        // }, 100000);
+        setTimeout(() => {
+          store.eventsStore.setEvents(transformEventsData);
+        }, 5000);
       })
       .catch((e) => {
         console.error('Error fetching posts:', e);

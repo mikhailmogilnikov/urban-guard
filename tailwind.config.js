@@ -17,6 +17,7 @@ module.exports = {
       animation: {
         borderPulseRed: 'borderPulseRed 4s linear infinite',
         borderPulseYellow: 'borderPulseYellow 4s linear infinite',
+        preloaderPulse: 'preloadPulse 2s linear infinite',
       },
       keyframes: {
         borderPulseRed: {
@@ -28,6 +29,11 @@ module.exports = {
           '0%': { borderColor: 'rgba(255, 255, 255, 0.2)' },
           '50%': { borderColor: 'rgba(255, 196, 0, 0.4)' },
           '100%': { borderColor: 'rgba(255, 255, 255, 0.2)' },
+        },
+        preloadPulse: {
+          '0%': { opacity: '0.09' },
+          '50%': { opacity: '0.14' },
+          '100%': { opacity: '0.09' },
         },
       },
     },
