@@ -9,7 +9,9 @@ const todayDate = new Date(Date.now());
 
 const EventList = observer(() => {
   const { eventsStore } = useStore();
-  const eventsData = JSON.parse(JSON.stringify(eventsStore.events));
+  if (eventsStore === null) return (<div />);
+
+  const eventsData = JSON.parse(JSON.stringify(eventsStore.events ? eventsStore.events : []));
 
   const groupedEvents = _.groupBy(eventsData, (currEvent) => {
     const date = new Date(currEvent.date);

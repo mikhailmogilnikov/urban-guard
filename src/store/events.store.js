@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 
 const eventsStore = makeAutoObservable({
-  events: [],
+  events: null,
   setEvents(events) {
     this.events = events;
   },
