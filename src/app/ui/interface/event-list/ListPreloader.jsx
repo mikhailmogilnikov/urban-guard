@@ -15,38 +15,36 @@ const ListPreloader = observer(() => {
         className="w-full h-full flex flex-col gap-10"
       >
         <div className="w-full flex flex-col gap-4 ">
-          <div className="w-24 h-6 rounded-xl bg-black dark:bg-white animate-preloaderPulse" />
+          <div className="w-24 h-6 rounded-xl bg-black dark:bg-white opacity-[0.09] animate-preloaderPulse" />
+          <div className="w-full h-24 rounded-[34px] bg-black dark:bg-white opacity-[0.09] animate-preloaderPulse" />
           <div
-            className="w-full h-24 rounded-[34px] bg-black dark:bg-white animate-preloaderPulse"
-          />
-          <div
-            className="w-full h-24 rounded-[34px] bg-black dark:bg-white animate-preloaderPulse"
+            className="w-full h-24 rounded-[34px] bg-black dark:bg-white opacity-[0.09] animate-preloaderPulse"
             style={{ animationDelay: '200ms' }}
           />
           <div
-            className="w-full h-24 rounded-[34px] bg-black dark:bg-white animate-preloaderPulse"
+            className="w-full h-24 rounded-[34px] bg-black dark:bg-white opacity-[0.09] animate-preloaderPulse"
             style={{ animationDelay: '400ms' }}
           />
           <div
-            className="w-full h-24 rounded-[34px] bg-black dark:bg-white animate-preloaderPulse"
+            className="w-full h-24 rounded-[34px] bg-black dark:bg-white opacity-[0.09] animate-preloaderPulse"
             style={{ animationDelay: '600ms' }}
           />
         </div>
         <div className="w-full flex flex-col gap-4">
           <div
-            className="w-24 h-6 rounded-xl bg-black dark:bg-white animate-preloaderPulse"
+            className="w-24 h-6 rounded-xl bg-black dark:bg-white opacity-[0.09] animate-preloaderPulse"
             style={{ animationDelay: '800ms' }}
           />
           <div
-            className="w-full h-24 rounded-[34px] bg-black dark:bg-white animate-preloaderPulse delay-200"
+            className="w-full h-24 rounded-[34px] bg-black dark:bg-white opacity-[0.09] animate-preloaderPulse delay-200"
             style={{ animationDelay: '800ms' }}
           />
           <div
-            className="w-full h-24 rounded-[34px] bg-black dark:bg-white animate-preloaderPulse delay-200"
+            className="w-full h-24 rounded-[34px] bg-black dark:bg-white opacity-[0.09] animate-preloaderPulse delay-200"
             style={{ animationDelay: '1000ms' }}
           />
           <div
-            className="w-full h-24 rounded-[34px] bg-black dark:bg-white animate-preloaderPulse delay-200"
+            className="w-full h-24 rounded-[34px] bg-black dark:bg-white opacity-[0.09] animate-preloaderPulse delay-200"
             style={{ animationDelay: '1200ms' }}
           />
           <div
@@ -54,7 +52,7 @@ const ListPreloader = observer(() => {
             style={{ animationDelay: '1400ms' }}
           />
           <div
-            className="w-full h-24 rounded-[34px] bg-black dark:bg-white animate-preloaderPulse delay-200"
+            className="w-full h-24 rounded-[34px] bg-black dark:bg-white opacity-[0.09] animate-preloaderPulse delay-200"
             style={{ animationDelay: '1600ms' }}
           />
         </div>
