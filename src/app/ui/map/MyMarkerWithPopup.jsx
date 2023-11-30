@@ -45,7 +45,7 @@ function MyMarkerWithPopup({
     onClick();
     setPopupVisible(!isActive);
     if (!file) {
-      postFile(32)
+      postFile(item.id)
         .then((f) => {
           setFile(f);
         })
