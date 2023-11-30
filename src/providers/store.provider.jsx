@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { StoreContext, useStore } from '@/store/store';
-import axiosInstance from '@/utility/http';
+import { axiosInstance } from '@/utility/http';
 import { postDataTransformer } from '@/utility/httpConv';
 
 export default function StoreProvider({ children }) {
@@ -13,9 +13,7 @@ export default function StoreProvider({ children }) {
       .then((response) => {
         const eventsData = response.data.events ? response.data.events : [];
         const transformEventsData = postDataTransformer(eventsData);
-        setTimeout(() => {
-          store.eventsStore.setEvents(transformEventsData);
-        }, 10000);
+        store.eventsStore.setEvents(transformEventsData);
       })
       .catch((e) => {
         console.error('Error fetching posts:', e);

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_SERVER_API,
   timeout: 15000,
   headers: {
@@ -8,4 +8,10 @@ const axiosInstance = axios.create({
   },
 });
 
-export default axiosInstance;
+export const localAxiosInstance = axios.create({
+  baseURL: 'http://localhost:5000',
+  timeout: 15000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
