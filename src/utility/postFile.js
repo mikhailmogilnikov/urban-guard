@@ -1,7 +1,7 @@
-import { localAxiosInstance } from '@/utility/http';
+import { axiosInstance } from '@/utility/http';
 
 const postFile = (eventId) => new Promise((res, rej) => {
-  localAxiosInstance
+  axiosInstance
     .post(`/api/file/${eventId}`)
     .then((response) => {
       const { data } = response;
