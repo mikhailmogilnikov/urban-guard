@@ -13,9 +13,9 @@ const AwaitPreloader = observer(() => {
     <AnimatePresence>
       {isLoaded && (
         <motion.div
-          initial={{ translateY: '200px', opacity: 0 }}
-          animate={{ translateY: '-60px', opacity: 1 }}
-          exit={{ translateY: '200px', opacity: 0 }}
+          initial={{ translateY: '200px' }}
+          animate={{ translateY: '-60px' }}
+          exit={{ translateY: '200px' }}
           transition={{
             type: 'spring',
             stiffness: 50,
