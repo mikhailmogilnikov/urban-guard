@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { StoreContext, useStore } from '@/store/store';
-import axiosInstance from '@/utility/http';
+import { axiosInstance } from '@/utility/http';
 import { postDataTransformer } from '@/utility/httpConv';
 
 export default function StoreProvider({ children }) {

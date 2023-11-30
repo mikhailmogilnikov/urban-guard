@@ -1,12 +1,12 @@
 import { Chip } from '@nextui-org/chip';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PiClockBold, PiMapPinBold, PiQuestionBold } from 'react-icons/pi';
+import Image from 'next/image.js';
 import Text from '../primitives/Text.jsx';
+import postFile from '@/utility/postFile.js';
 
-function MyMarkerWithPopup({
-  YMapMarker, isActive, onClick, item,
-}) {
+function MyMarkerWithPopup({ YMapMarker, isActive, onClick, item }) {
   let markerColor;
   let popupBorder;
   let chipType;
@@ -37,10 +37,20 @@ function MyMarkerWithPopup({
   const [, setPopupVisible] = useState(false);
 
   const [selectedId, setSelectedId] = useState(null);
+  const [file, setFile] = useState(null);
 
   const handleMarkerClick = () => {
     onClick();
     setPopupVisible(!isActive);
+    if (!file) {
+      postFile(32)
+        .then((f) => {
+          setFile(f);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    }
   };
 
   const normalizeDate = (date) => {
@@ -92,13 +102,15 @@ function MyMarkerWithPopup({
             className="fixed w-[96vw] lg:w-[60vw] xl2:w-[60rem] rounded-3xl origin-top aspect-video bg-default-50 dark:bg-default-50 z-20 border-1 border-black/20 dark:border-white/20 shadow-2xl shadow-black/60 cursor-pointer"
             onClick={() => setSelectedId(null)}
           >
-            {/* <Image
-              src={item.image}
-              fill
-              alt={item.type}
-              loading={isActive ? 'eager' : 'lazy'}
-              style={{ borderRadius: 'inherit' }}
-            /> */}
+            {file && (
+              <Image
+                src={file.src}
+                fill
+                alt={item.type}
+                loading={isActive ? 'eager' : 'lazy'}
+                style={{ borderRadius: 'inherit' }}
+              />
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -119,13 +131,15 @@ function MyMarkerWithPopup({
                 onClick={() => setSelectedId(item.id)}
                 className="w-full aspect-video bg-default-50 dark:bg-default-50"
               >
-                {/* <Image
-                  src={item.image}
-                  width={414}
-                  height={233}
-                  loading={isActive ? 'eager' : 'lazy'}
-                  alt={item.type}
-                /> */}
+                {file && (
+                  <Image
+                    src={file.src}
+                    width={414}
+                    height={233}
+                    loading={isActive ? 'eager' : 'lazy'}
+                    alt={item.type}
+                  />
+                )}
               </button>
               <div className="w-full h-min flex flex-col gap-3 p-5 cursor-auto">
                 <Text tag="h2" classNames="select-all" text={item.type} />
