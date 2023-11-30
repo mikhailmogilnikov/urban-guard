@@ -1,6 +1,6 @@
 import { Chip } from '@nextui-org/chip';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { PiClockBold, PiMapPinBold, PiQuestionBold } from 'react-icons/pi';
 import Image from 'next/image.js';
 import Text from '../primitives/Text.jsx';
