@@ -110,7 +110,7 @@ function MyMarkerWithPopup({
                 fill
                 alt={item.type}
                 loading={isActive ? 'eager' : 'lazy'}
-                style={{ borderRadius: 'inherit' }}
+                style={{ borderRadius: 'inherit', objectFit: 'cover' }}
               />
             )}
           </motion.div>
@@ -140,6 +140,7 @@ function MyMarkerWithPopup({
                     height={233}
                     loading={isActive ? 'eager' : 'lazy'}
                     alt={item.type}
+                    style={{ objectFit: 'cover' }}
                   />
                 )}
               </button>
