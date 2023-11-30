@@ -2,8 +2,9 @@
 
 import { useTheme } from 'next-themes';
 import { useRef, useState } from 'react';
-import MapPreloader from './MapPreloader.jsx';
 import { useMap } from '@/providers/map.provider.jsx';
+import AwaitPreloader from './AwaitPreloader.jsx';
+import MapPreloader from './MapPreloader.jsx';
 import Markers from './Markers.jsx';
 
 function Map() {
@@ -42,6 +43,7 @@ function Map() {
 
         <Markers YMapMarker={YMapMarker} />
       </YMap>
+      <AwaitPreloader />
     </div>
   );
 }
