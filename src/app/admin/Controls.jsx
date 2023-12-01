@@ -1,4 +1,5 @@
 import { Button } from '@nextui-org/button';
+import deleteLastEvent from '@/utility/deleteLastEvent';
 
 function Controls() {
   return (
@@ -12,6 +13,7 @@ function Controls() {
         Добавить событие
       </Button>
       <Button
+        onClick={() => deleteLastEvent()}
         size="lg"
         variant="flat"
         color="warning"
