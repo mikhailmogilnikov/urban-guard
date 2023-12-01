@@ -25,6 +25,18 @@ function Map() {
     );
   }
 
+  // const newLocation = {
+  //   center: [37.64, 55.76],
+  //   zoom: 12,
+  // };
+
+  // const changeCenter = () => {
+  //   setLocation({
+  //     ...newLocation,
+  //     duration: 1000,
+  //   });
+  // };
+
   const {
     YMap,
     YMapDefaultSchemeLayer,
