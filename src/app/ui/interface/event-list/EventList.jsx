@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '@/store/store.js';
 import Text from '../../primitives/Text.jsx';
 import EventItem from './EventItem.jsx';
-import ListPreloader from './ListPreloader.jsx';
+import ListPreloader from '../../preloaders/ListPreloader.jsx';
 
 const todayDate = new Date();
 
@@ -85,7 +85,7 @@ const EventList = observer(() => {
   });
 
   return (
-    <ScrollShadow className="w-full h-full flex flex-col overflow-y-scroll overflow-x-hidden gap-10 p-5 md:pr-4">
+    <ScrollShadow className="w-full h-full flex flex-col overflow-y-scroll overflow-x-hidden gap-10 p-5">
       <ListPreloader />
       {categories.map(
         (category) =>
