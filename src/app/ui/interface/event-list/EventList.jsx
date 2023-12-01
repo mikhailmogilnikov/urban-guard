@@ -12,25 +12,53 @@ const todayDate = new Date();
 const EventList = observer(({ moveCamera }) => {
   const { eventsStore } = useStore();
 
-  const groupedEvents = _.groupBy(eventsStore.events || [], (currEvent) => {
-    const date = new Date(currEvent.date);
+  function isSameDay(date1, date2) {
+    return (
+      date1.getFullYear() === date2.getFullYear()
+      && date1.getMonth() === date2.getMonth()
+      && date1.getDate() === date2.getDate()
+    );
+  }
 
-    if (
-      todayDate.getFullYear() !== date.getFullYear()
-      || todayDate.getMonth() !== date.getMonth()
-    ) {
-      return 'other';
-    }
-    if (todayDate.getDate() === date.getDate()) {
+  function isYesterday(date1, date2) {
+    const yesterday = new Date(todayDate);
+    yesterday.setDate(todayDate.getDate() - 1);
+    return isSameDay(yesterday, date2);
+  }
+
+  function isSameWeek(date1, date2) {
+    const millisecondsInDay = 24 * 60 * 60 * 1000;
+    const diffInMilliseconds = date1 - date2;
+    return Math.floor(diffInMilliseconds / millisecondsInDay) < 7;
+  }
+
+  function isSameMonth(date1, date2) {
+    return (
+      date1.getFullYear() === date2.getFullYear()
+      && date1.getMonth() === date2.getMonth()
+    );
+  }
+
+  const groupedEvents = _.groupBy(eventsStore.events || [], (currEvent) => {
+    const eventDate = new Date(currEvent.date);
+
+    if (isSameDay(todayDate, eventDate)) {
       return 'today';
     }
-    if (todayDate.getDate() - date.getDate() === 1) {
+
+    if (isYesterday(todayDate, eventDate)) {
       return 'yesterday';
     }
-    if (todayDate.getDate() - date.getDate() < 7) {
+
+    if (isSameWeek(todayDate, eventDate)) {
       return 'week';
     }
-    return 'month';
+
+    if (isSameMonth(todayDate, eventDate)) {
+      return 'month';
+    }
+
+    return 'other';
   });
 
   function getCategoryText(category) {
@@ -40,7 +68,7 @@ const EventList = observer(({ moveCamera }) => {
       case 'yesterday':
         return 'Вчера';
       case 'week':
-        return 'На этой неделе';
+        return 'За последние 7 дней';
       case 'month':
         return 'В этом месяце';
       case 'other':
