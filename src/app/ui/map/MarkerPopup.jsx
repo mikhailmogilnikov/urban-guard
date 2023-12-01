@@ -5,6 +5,7 @@ import { Button } from '@nextui-org/button';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image.js';
 import {
+  PiX,
   PiClockBold,
   PiMapPinBold,
   PiQuestionBold,
@@ -78,6 +79,15 @@ function MarkerPopup({
               onClick={openImageViewer}
               className="w-full aspect-[16/10] bg-default-50 dark:bg-default-50"
             >
+              <Button
+                radius="full"
+                variant="flat"
+                isIconOnly
+                onClick={closePopup}
+                className="absolute w-9 min-w-9 h-9 top-4 bg-white/50 dark:bg-black/70 backdrop-blur-lg right-4 z-10"
+              >
+                <PiX size={20} className="flex-shrink-0 opacity-50" />
+              </Button>
               {!file ? (
                 <Skeleton className="w-full h-full rounded-[inherit]" />
               ) : (
@@ -124,10 +134,7 @@ function MarkerPopup({
                   </PopoverTrigger>
                   <PopoverContent>
                     <div className="px-1 py-2 w-64">
-                      <Text
-                        tag="h4"
-                        text={textPopoverHead}
-                      />
+                      <Text tag="h4" text={textPopoverHead} />
                       <Text
                         classNames="pt-2 text-xs opacity-80"
                         text={textPopoverBody}
@@ -154,7 +161,6 @@ function MarkerPopup({
               <button
                 type="button"
                 aria-label="close"
-                onClick={closePopup}
                 className="w-full h-min flex flex-row bg-black/10 dark:bg-white/10 p-4 rounded-[20px] gap-4 opacity-50 items-center"
               >
                 <PiQuestionBold size={16} className="flex-shrink-0" />
