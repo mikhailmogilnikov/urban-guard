@@ -55,7 +55,7 @@ function MarkerPopup({
     )}:${normalizeValue(date.getSeconds())}`;
 
     const formattedDate = `${normalizeValue(date.getDate())}.${normalizeValue(
-      date.getMonth(),
+      date.getMonth() + 1,
     )}.${date.getFullYear()}`;
 
     return `${formattedDate}, ${formattedTime}`;
@@ -158,9 +158,7 @@ function MarkerPopup({
                   <Text tag="h5" classNames="select-all" text={item.address} />
                 </div>
               </div>
-              <button
-                type="button"
-                aria-label="close"
+              <div
                 className="w-full h-min flex flex-row bg-black/10 dark:bg-white/10 p-4 rounded-[20px] gap-4 opacity-50 items-center"
               >
                 <PiQuestionBold size={16} className="flex-shrink-0" />
@@ -168,7 +166,7 @@ function MarkerPopup({
                   classNames="font-medium"
                   text="Нажмите на изображение, чтобы его увеличить."
                 />
-              </button>
+              </div>
             </div>
           </div>
         </motion.div>
