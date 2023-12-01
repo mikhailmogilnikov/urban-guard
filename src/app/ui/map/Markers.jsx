@@ -21,7 +21,7 @@ const Markers = observer(({ YMapMarker, state }) => {
       const id = events.findIndex((item) => item.id === state.currentMarker);
       setTimeout(() => {
         handleMarkerClick(id);
-      }, 1000);
+      }, 1200);
     }
   }, [state]);
 

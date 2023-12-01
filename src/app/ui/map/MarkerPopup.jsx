@@ -4,7 +4,12 @@ import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover';
 import { Button } from '@nextui-org/button';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image.js';
-import { PiClockBold, PiMapPinBold, PiQuestionBold } from 'react-icons/pi';
+import {
+  PiClockBold,
+  PiMapPinBold,
+  PiQuestionBold,
+  PiQuestion,
+} from 'react-icons/pi';
 import Text from '../primitives/Text.jsx';
 
 function MarkerPopup({
@@ -19,17 +24,23 @@ function MarkerPopup({
   let popupBorder;
   let chipType;
   let chipContent;
+  let textPopoverHead;
+  let textPopoverBody;
 
   switch (state) {
     case 1:
       popupBorder = 'dark:animate-borderPulseRed';
       chipType = 'danger';
       chipContent = 'Подтверждённая угроза';
+      textPopoverHead = 'Существование угрозы подтверждено человеком';
+      textPopoverBody = 'Рекомендуется избегать ближайшие окресности и выбирать альтернативные пути маршрута.';
       break;
     case 0:
       popupBorder = 'dark:animate-borderPulseYellow';
       chipType = 'warning';
       chipContent = 'Потенциальная опасность';
+      textPopoverHead = 'Нейросеть обнаружила опасность на этом кадре';
+      textPopoverBody = 'Рекомендуется оценить изображение самостоятельно и сделать выводы о целесообразности посещения.';
       break;
     default:
       throw new Error('Ошибка: неизвестное состояние');
@@ -54,7 +65,7 @@ function MarkerPopup({
       {isActive && (
         <motion.div
           initial={{ scale: 0.5, translate: '-50% 0.5rem' }}
-          whileHover={{ scale: 1.02 }}
+          // whileHover={{ scale: 1.02 }}
           animate={{ scale: 1 }}
           exit={{ opacity: 0 }}
           transition={spring}
@@ -87,7 +98,7 @@ function MarkerPopup({
             <div className="w-full h-min flex flex-col gap-3 p-5 cursor-auto">
               <Text tag="h2" classNames="select-all" text={item.type} />
 
-              <div className="w-full flex flex-row gap-5">
+              <div className="w-full flex flex-row gap-4">
                 <Chip
                   color={chipType}
                   radius="md"
@@ -97,20 +108,30 @@ function MarkerPopup({
                   {chipContent}
                 </Chip>
 
-                <Popover placement="right" showArrow backdrop="blur">
+                <Popover placement="bottom" backdrop="blur">
                   <PopoverTrigger>
-                    <Button radius="full" variant="flat" isIconOnly className="!w-7 h-7">
-                      <PiQuestionBold size={18} className="flex-shrink-0" />
+                    <Button
+                      radius="full"
+                      variant="flat"
+                      isIconOnly
+                      className="h-7 min-w-7 w-7"
+                    >
+                      <PiQuestion
+                        size={20}
+                        className="flex-shrink-0 opacity-50"
+                      />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent>
-                    <div className="px-1 py-2">
-                      <div className="text-small font-bold">
-                        Popover Content
-                      </div>
-                      <div className="text-tiny">
-                        This is the popover content
-                      </div>
+                    <div className="px-1 py-2 w-64">
+                      <Text
+                        tag="h4"
+                        text={textPopoverHead}
+                      />
+                      <Text
+                        classNames="pt-2 text-xs opacity-80"
+                        text={textPopoverBody}
+                      />
                     </div>
                   </PopoverContent>
                 </Popover>

@@ -39,7 +39,7 @@ export default function Home() {
   const moveCamera = (coordinates, id) => {
     setState({
       location: {
-        center: [Number(coordinates[0]), Number(coordinates[1]) - 0.002],
+        center: [Number(coordinates[0]), Number(coordinates[1]) - 0.00275],
         zoom: 16,
         duration: 1000,
       },
