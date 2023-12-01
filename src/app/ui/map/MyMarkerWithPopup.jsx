@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { PiClockBold, PiMapPinBold, PiQuestionBold } from 'react-icons/pi';
 import Image from 'next/image.js';
+import { Skeleton } from '@nextui-org/skeleton';
 import Text from '../primitives/Text.jsx';
 import postFile from '@/utility/postFile.js';
 
@@ -104,13 +105,19 @@ function MyMarkerWithPopup({
             className="fixed w-[96vw] lg:w-[60vw] xl2:w-[60rem] rounded-3xl origin-top aspect-video bg-default-50 dark:bg-default-50 z-20 border-1 border-black/20 dark:border-white/20 shadow-2xl shadow-black/60 cursor-pointer"
             onClick={() => setSelectedId(null)}
           >
-            {file && (
+            {!file ? (
+              <Skeleton className="w-full aspect-video rounded-[inherit]" />
+            ) : (
               <Image
                 src={file.src}
                 fill
                 alt={item.type}
                 loading={isActive ? 'eager' : 'lazy'}
-                style={{ borderRadius: 'inherit' }}
+                style={{
+                  borderRadius: 'inherit',
+                  objectFit: 'cover',
+                  aspectRatio: '16/9',
+                }}
               />
             )}
           </motion.div>
@@ -131,15 +138,22 @@ function MyMarkerWithPopup({
                 type="button"
                 aria-label="Open Image"
                 onClick={() => setSelectedId(item.id)}
-                className="w-full aspect-video bg-default-50 dark:bg-default-50"
+                className="w-full aspect-[16/10] bg-default-50 dark:bg-default-50"
               >
-                {file && (
+                {!file ? (
+                  <Skeleton className="w-full h-full rounded-[inherit]" />
+                ) : (
                   <Image
                     src={file.src}
                     width={414}
                     height={233}
                     loading={isActive ? 'eager' : 'lazy'}
                     alt={item.type}
+                    style={{
+                      objectFit: 'cover',
+                      height: 'auto',
+                      aspectRatio: '16/10',
+                    }}
                   />
                 )}
               </button>
