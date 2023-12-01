@@ -9,7 +9,7 @@ import ListPreloader from '../../preloaders/ListPreloader.jsx';
 
 const todayDate = new Date();
 
-const EventList = observer(() => {
+const EventList = observer(({ moveCamera }) => {
   const { eventsStore } = useStore();
 
   const groupedEvents = _.groupBy(eventsStore.events || [], (currEvent) => {
@@ -103,6 +103,7 @@ const EventList = observer(() => {
                     new Date(event.date),
                     category,
                   )}
+                  click={() => moveCamera(event.coordinates, event.id)}
                 />
               ))}
             </div>

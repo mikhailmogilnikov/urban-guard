@@ -1,20 +1,15 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useMap } from '@/providers/map.provider.jsx';
 import AwaitPreloader from '../preloaders/AwaitPreloader.jsx';
 import MapPreloader from '../preloaders/MapPreloader.jsx';
 import Markers from './Markers.jsx';
 
-function Map() {
+function Map({ state }) {
   const mapRef = useRef(null);
   const { theme } = useTheme();
-
-  const [location] = useState({
-    center: [37.64, 55.76],
-    zoom: 12,
-  });
 
   const { reactifyApi } = useMap();
   if (!reactifyApi) {
@@ -25,23 +20,8 @@ function Map() {
     );
   }
 
-  // const newLocation = {
-  //   center: [37.64, 55.76],
-  //   zoom: 12,
-  // };
-
-  // const changeCenter = () => {
-  //   setLocation({
-  //     ...newLocation,
-  //     duration: 1000,
-  //   });
-  // };
-
   const {
-    YMap,
-    YMapDefaultSchemeLayer,
-    YMapDefaultFeaturesLayer,
-    YMapMarker,
+    YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker,
   } = reactifyApi.base;
 
   return (
@@ -49,11 +29,11 @@ function Map() {
       id="map-wrapper"
       className="w-full h-full flex cursor-grab justify-center items-center"
     >
-      <YMap location={location} ref={mapRef}>
+      <YMap location={state.location} ref={mapRef}>
         <YMapDefaultSchemeLayer theme={theme} />
         <YMapDefaultFeaturesLayer />
 
-        <Markers YMapMarker={YMapMarker} />
+        <Markers YMapMarker={YMapMarker} state={state} />
       </YMap>
       <AwaitPreloader />
     </div>

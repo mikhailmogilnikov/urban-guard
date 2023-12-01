@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Text from '../../primitives/Text.jsx';
 import UrbanGuardLogo from '../../primitives/UrbanGuard.jsx';
 import ModalWindow from './ModalWindow.jsx';
 import NavButton from './NavButton.jsx';
 
-function Header() {
+function Header({ state, moveCamera }) {
   const [isMobileEventListOpen, setIsMobileEventListOpen] = useState(false);
   const [isMobileMenuListOpen, setIsMobileMenuListOpen] = useState(false);
 
@@ -19,6 +19,12 @@ function Header() {
       (prevState) => (type === 'menu' && !prevState) || (type === 'list' && false),
     );
   };
+
+  useEffect(() => {
+    if (state.currentMarker !== null) {
+      handleNavButtonClick('list');
+    }
+  }, [state]);
 
   return (
     <header className="h-16 z-[1002]">
@@ -44,11 +50,13 @@ function Header() {
       </div>
 
       <ModalWindow
+        moveCamera={moveCamera}
         isMobileEventListOpen={isMobileEventListOpen}
         onClose={() => setIsMobileEventListOpen(false)}
       />
 
       <ModalWindow
+        moveCamera={moveCamera}
         isMobileMenuListOpen={isMobileMenuListOpen}
         onClose={() => setIsMobileMenuListOpen(false)}
       />

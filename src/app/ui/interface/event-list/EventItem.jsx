@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Text from '../../primitives/Text.jsx';
 
 function EventItem({
-  state, type, address, formattedDateTime,
+  state, type, address, formattedDateTime, click,
 }) {
   let markerColor;
 
@@ -26,6 +26,7 @@ function EventItem({
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+      onClick={click}
       className="w-full h-24 px-6 flex flex-row flex-shrink-0 gap-5 items-center rounded-[34px] border border-black/20 dark:border-white/20"
     >
       <div

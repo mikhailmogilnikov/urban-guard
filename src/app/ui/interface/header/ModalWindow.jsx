@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import EventList from '../event-list/EventList.jsx';
 import MenuList from '../menu/MenuList.jsx';
 
-function ModalWindow({ isMobileEventListOpen, isMobileMenuListOpen }) {
+function ModalWindow({ isMobileEventListOpen, isMobileMenuListOpen, moveCamera }) {
   let listStyles = 'lg:w-[383px]';
   if (isMobileEventListOpen) {
     listStyles = 'lg:hidden';
@@ -21,7 +21,7 @@ function ModalWindow({ isMobileEventListOpen, isMobileMenuListOpen }) {
           }}
           className={`absolute ${listStyles} overflow-hidden w-screen h-[100dvh] pt-16 top-0 left-0 bg-white dark:bg-black -z-10`}
         >
-          {isMobileEventListOpen && <EventList />}
+          {isMobileEventListOpen && <EventList moveCamera={moveCamera} />}
           {isMobileMenuListOpen && <MenuList />}
         </motion.div>
       )}

@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import postFile from '@/utility/postFile.js';
 import ImageViewer from './ImageViewer.jsx';
 import MarkerPopup from './MarkerPopup.jsx';
 
 function Marker({
-  YMapMarker, isActive, onClick, item,
+  YMapMarker, isActive, onClick, item, isPreload,
 }) {
   let markerColor;
 
@@ -33,6 +33,15 @@ function Marker({
   const [selectedId, setSelectedId] = useState(null);
   const [file, setFile] = useState(null);
 
+  useEffect(() => {
+    if (isPreload && !file) {
+      postFile(item.id)
+        .then((f) => {
+          setFile(f);
+        });
+    }
+  }, [isPreload]);
+
   const handleMarkerClick = () => {
     onClick();
     setPopupVisible(!isActive);
@@ -41,9 +50,6 @@ function Marker({
         .then((f) => {
           setFile(f);
         });
-      // .catch((e) => {
-      //   console.error(e);
-      // });
     }
   };
 
