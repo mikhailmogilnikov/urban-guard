@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from '@nextui-org/button';
 import deleteLastEvent from '@/utility/deleteLastEvent';
 
@@ -13,7 +15,7 @@ function Controls() {
         Добавить событие
       </Button>
       <Button
-        onClick={() => deleteLastEvent()}
+        onClick={deleteLastEvent}
         size="lg"
         variant="flat"
         color="warning"
