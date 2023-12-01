@@ -3,8 +3,8 @@
 import { useTheme } from 'next-themes';
 import { useRef, useState } from 'react';
 import { useMap } from '@/providers/map.provider.jsx';
-import AwaitPreloader from './AwaitPreloader.jsx';
-import MapPreloader from './MapPreloader.jsx';
+import AwaitPreloader from '../preloaders/AwaitPreloader.jsx';
+import MapPreloader from '../preloaders/MapPreloader.jsx';
 import Markers from './Markers.jsx';
 
 function Map() {
